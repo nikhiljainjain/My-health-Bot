@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+    <div class="container-fluid" id="chatPlace" style="margin-bottom: 2%">
+        <!--div class="row">
+            <div class="col-7"></div>
+            <div class="alert alert-warning col-5 align-self-end rounded" id="chats">my query</div>
+        </div-->
+        <div class="row">
+            <div class="alert alert-success col-5 align-self-start rounded" id="response">HELLO I AM NICKY
+                <br>How can I help you
+                <br>Made By NIKHIL JAIN</div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!--form></form-->
+    <div class="input-group">
+        <textarea class="form-control" id="query" name="comments" placeholder="Let's chat..." required aria-label="With textarea"></textarea>
+    </div>
+    <br>
+    <!--input type="submit" id="button" value="Submit" class="btn btn-outline-primary" /-->
+    <button class="btn btn-outline-primary" onclick="clickMe()" id="button">Submit Now</button>
+    <br>
+    <!--a href="/"><button class="btn btn-primary" style="float: right;margin: 1% 1%;display: block" onclick="deleteCookies()">
+    Log Out</button></a>
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,34 @@
+{
+  "name": "mychatbot",
+  "version": "1.0.0",
+  "description": "a chatbot for get details of vit student",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chatbot",
+    "vit",
+    "student"
+  ],
+  "author": "UNKNONWN",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "express-sanitizer": "^1.0.4",
+    "graphiql": "^0.11.11",
+    "graphql": "^14.0.0",
+    "helmet": "^3.13.0",
+    "http-errors": "^1.7.1",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.3.0",
+    "morgan": "^1.9.0",
+    "mysql": "^2.16.0"
+  }
+}
