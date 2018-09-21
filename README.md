@@ -10,7 +10,7 @@ Detail that this bot will give as following.<br>
   <li>how to use</li>
 </ul>
 <br>
-<i>Following medicine are present in database.</i>
+<!--i>Following medicine are present in database.</i>
 <br>
 <ol>
   <li>Disprin</li>
@@ -35,4 +35,4 @@ To use this chatbot you must have nodejs & mysql. Then follow below instructions
   <li>start node server</li>
   <li>got to browser enter "localhost:12345"</li>
   <li>chatbot will say to you</li>
-</ul>
+</ul-->
