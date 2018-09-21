@@ -123,19 +123,22 @@ app.post('/myQuery', (req,res)=>{
             else if (!result) res.send({'data': 'Try something else'});
         })
     }else if (/(DRUG|CHEMICAL|AGE|SIDE EFFECT|USE)/g.test(userQuery)){
-        columnsSel = /(DRUG|CHEMICAL|AGE|EFFECT|USE|BODY|TARGET)/.exec(userQuery);//userQuery.exec();
-        columnsSel = columnsSel[0];
+        columnsSel = /(DRUG|CHEMICAL|AGE|EFFECT|USE|BODY|TARGET)/.exec(userQuery);
+        if (columnsSel !== null) columnsSel = columnsSel[0];
         let indexM = dataArray.indexOf(columnsSel),output;
         medicineName = dataArray[dataArray.indexOf(columnsSel)+2];
         con.query("SELECT * FROM MEDICINE_DETAILS WHERE NAME='"+medicineName+"' OR NAME='"+
             dataArray[indexM+3] +"'", (err, result)=> {
             if (err) throw err;
-            if (columnsSel === "DRUG" || columnsSel === 'CHEMICAL') output = result[0].DRUGORCHMICAL;
-            else if (columnsSel === "EFFECT") output = result[0].SIDE_EFFECTS;
-            else if (columnsSel === "AGE") output = result[0].AGEGROUP;
-            else if (columnsSel === "TARGET" || columnsSel === "BODY") output = result[0].TARGET;
-            if (output) res.send({'data': "Here is information that you want <br>" + (output).toLowerCase()});
-            else if (!output) res.send({'data': "Once try with complete details"});
+            if (result.length !== 0)
+            {
+                if (columnsSel === "DRUG" || columnsSel === 'CHEMICAL') output = result[0].DRUGORCHMICAL;
+                else if (columnsSel === "EFFECT") output = result[0].SIDE_EFFECTS;
+                else if (columnsSel === "AGE") output = result[0].AGEGROUP;
+                else if (columnsSel === "TARGET" || columnsSel === "BODY") output = result[0].TARGET;
+            }
+            if (output) res.send({'data': "Here is information that you want <br>'" + (output).toLowerCase()+"'"});
+            else if (!output) res.send({'data': "Once try for complete details"});
         });
     }else if (/(HOW TO USE|HOW TO TAKE)/g.test(userQuery)){
         const findWord = (/(USE|TAKE)/g.exec(userQuery))[0];
@@ -148,7 +151,7 @@ app.post('/myQuery', (req,res)=>{
                 +data[0].USEPERDAY+" per day"});
         });
     }else {
-        res.send({'data': '<h4>I know about medicine only !!!</h4>'});
+        res.send({'data': 'Please try something else'});
     }
 });
 

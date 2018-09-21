@@ -20,7 +20,6 @@ function clickMe(){
             $('#query').val(' ');
         })
             .done((response)=>{
-                console.log(response);
                 const htmlTag = "<div class='row'> <div class='alert alert-success col-5 align-self-start rounded'>";
                 $('#chatPlace').append(htmlTag + response.data + "</div></div>");
                 //$('#response').html(response.data.data);
